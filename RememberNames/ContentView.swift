@@ -31,7 +31,11 @@ struct ContentView: View {
                             .font(.headline)
                     }
                 }
+                .onTapGesture {
+                    self.showingImagePicker = true
+                }
             }
+            .navigationBarTitle("Remember Me")
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
@@ -39,14 +43,8 @@ struct ContentView: View {
     }
         
     func loadImage() {
-        guard let self.inputImage = inputImage else { return }
-        
-//        let beginImage = CIImage(image: inputImage)
-//        if let cgimg = context.createCGImage(inputImage, from: inputImage.extent) {
-//            let uiImage = UIImage(cgImage: cgimg)
-            image = Image(uiImage: uiImage)
-//            processedImage = uiImage
-        }
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
     }
 }
 
