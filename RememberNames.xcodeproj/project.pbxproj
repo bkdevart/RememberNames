@@ -14,6 +14,7 @@
 		CAE940822662CB3000F3EF72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE940812662CB3000F3EF72 /* Assets.xcassets */; };
 		CAE940852662CB3000F3EF72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE940842662CB3000F3EF72 /* Preview Assets.xcassets */; };
 		CAE940882662CB3000F3EF72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE940862662CB3000F3EF72 /* LaunchScreen.storyboard */; };
+		CAE940902662CCA700F3EF72 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CAE940842662CB3000F3EF72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAE940872662CB3000F3EF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAE940892662CB3000F3EF72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				CAE940782662CB3000F3EF72 /* AppDelegate.swift */,
 				CAE9407A2662CB3000F3EF72 /* SceneDelegate.swift */,
 				CAE9407C2662CB3000F3EF72 /* ContentView.swift */,
+				CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */,
 				CAE940812662CB3000F3EF72 /* Assets.xcassets */,
 				CAE940862662CB3000F3EF72 /* LaunchScreen.storyboard */,
 				CAE940892662CB3000F3EF72 /* Info.plist */,
@@ -150,6 +153,7 @@
 			files = (
 				CAE940792662CB3000F3EF72 /* AppDelegate.swift in Sources */,
 				CAE940802662CB3000F3EF72 /* RememberNames.xcdatamodeld in Sources */,
+				CAE940902662CCA700F3EF72 /* ImagePicker.swift in Sources */,
 				CAE9407B2662CB3000F3EF72 /* SceneDelegate.swift in Sources */,
 				CAE9407D2662CB3000F3EF72 /* ContentView.swift in Sources */,
 			);
