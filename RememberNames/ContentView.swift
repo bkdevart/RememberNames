@@ -17,29 +17,25 @@ struct ContentView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     @State private var showingEditScreen = false
-//    @State private var imageName = ""
+    @State private var imageName = ""
     
     let context = CIContext()
     
     var body: some View {
         return NavigationView {
             VStack {
+                Text(imageName)
+                    .fontWeight(.bold)
+                    .font(.headline)
                 ZStack {
                     Rectangle()
                         .fill(Color.secondary)
                     
                     if image != nil {
-                        
-//                        Text(imageName)
                         image?
                             .resizable()
                             .scaledToFit()
-                        // add prompt to name picture
-                        // save image to user folder
-                        let filename = getDocumentsDirectory().appendingPathComponent("photo")
-//                        if let jpegData = inputImage!.jpegData(compressionQuality: 0.8) {
-//                            try? jpegData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
-//                        }
+                        
                     } else {
                         Text("Tap to select a picture")
                             .foregroundColor(.white)
@@ -54,10 +50,9 @@ struct ContentView: View {
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
+            // add prompt to name picture
             .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
-//                if self.imageName == "" {
-                    EditView()
-//                }
+                EditView(imageName: $imageName)
             }
         }
     }
@@ -69,6 +64,8 @@ struct ContentView: View {
     
     func saveData() {
         // save code here
+        // save image to user folder
+        saveImageFile()
     }
         
     func loadImage() {
@@ -76,10 +73,17 @@ struct ContentView: View {
         image = Image(uiImage: inputImage)
         showingEditScreen = true
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    func saveImageFile() {
+        let filename = getDocumentsDirectory().appendingPathComponent("\(imageName).jpg")
+        if let jpegData = inputImage!.jpegData(compressionQuality: 0.8) {
+            try? jpegData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+        }
     }
 }
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
