@@ -8,21 +8,15 @@
 import SwiftUI
 
 struct EditView: View {
-//    enum LoadingState {
-//        case loading, loaded, failed
-//    }
     
     @Environment(\.presentationMode) var presentationMode
-    @State private var photoName = ""
-//    @ObservedObject var placemark: MKPointAnnotation
-//    @State private var loadingState = LoadingState.loading
-//    @Binding var locations: [CodableMKPointAnnotation]
+    @Binding var imageName: String
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Person name", text: $photoName)
+                    TextField("Person name", text: $imageName)
                 }
             }
             .navigationBarItems(trailing: Button("Done") {

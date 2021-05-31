@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+struct photoData {
+    var imageName: String
+    var personName: String
+}
+
 struct ContentView: View {
     @State private var image: Image?
     @State private var showingImagePicker = false
@@ -24,13 +29,16 @@ struct ContentView: View {
                         .fill(Color.secondary)
                     
                     if image != nil {
+                        
+//                        Text(imageName)
                         image?
                             .resizable()
                             .scaledToFit()
                         // add prompt to name picture
                         // save image to user folder
-//                        if let jpegData = yourUIImage.jpegData(compressionQuality: 0.8) {
-//                            try? jpegData.write(to: yourURL, options: [.atomicWrite, .completeFileProtection])
+                        let filename = getDocumentsDirectory().appendingPathComponent("photo")
+//                        if let jpegData = inputImage!.jpegData(compressionQuality: 0.8) {
+//                            try? jpegData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
 //                        }
                     } else {
                         Text("Tap to select a picture")
@@ -48,10 +56,15 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
                 if self.imageName == "" {
-                    EditView()
+                    EditView(imageName: $imageName)
                 }
             }
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
     func saveData() {
