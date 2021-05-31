@@ -10,7 +10,7 @@ import SwiftUI
 struct EditView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @Binding var imageName: String
+    @State private var imageName = ""
     
     var body: some View {
         NavigationView {

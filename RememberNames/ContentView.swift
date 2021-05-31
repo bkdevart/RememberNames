@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
     @State private var showingEditScreen = false
-    @State private var imageName = ""
+//    @State private var imageName = ""
     
     let context = CIContext()
     
@@ -55,9 +55,9 @@ struct ContentView: View {
                 ImagePicker(image: self.$inputImage)
             }
             .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
-                if self.imageName == "" {
-                    EditView(imageName: $imageName)
-                }
+//                if self.imageName == "" {
+                    EditView()
+//                }
             }
         }
     }
