@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA31C8B02664730D00282BD6 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA31C8AF2664730D00282BD6 /* EditView.swift */; };
 		CAE940792662CB3000F3EF72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE940782662CB3000F3EF72 /* AppDelegate.swift */; };
 		CAE9407B2662CB3000F3EF72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9407A2662CB3000F3EF72 /* SceneDelegate.swift */; };
 		CAE9407D2662CB3000F3EF72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9407C2662CB3000F3EF72 /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA31C8AF2664730D00282BD6 /* EditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		CAE940752662CB3000F3EF72 /* RememberNames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RememberNames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE940782662CB3000F3EF72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE9407A2662CB3000F3EF72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				CAE940782662CB3000F3EF72 /* AppDelegate.swift */,
 				CAE9407A2662CB3000F3EF72 /* SceneDelegate.swift */,
 				CAE9407C2662CB3000F3EF72 /* ContentView.swift */,
+				CA31C8AF2664730D00282BD6 /* EditView.swift */,
 				CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */,
 				CAE940812662CB3000F3EF72 /* Assets.xcassets */,
 				CAE940862662CB3000F3EF72 /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 			files = (
 				CAE940792662CB3000F3EF72 /* AppDelegate.swift in Sources */,
 				CAE940802662CB3000F3EF72 /* RememberNames.xcdatamodeld in Sources */,
+				CA31C8B02664730D00282BD6 /* EditView.swift in Sources */,
 				CAE940902662CCA700F3EF72 /* ImagePicker.swift in Sources */,
 				CAE9407B2662CB3000F3EF72 /* SceneDelegate.swift in Sources */,
 				CAE9407D2662CB3000F3EF72 /* ContentView.swift in Sources */,
