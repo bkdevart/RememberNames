@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State private var showingEditScreen = false
     @State private var imageName = ""
+    @State private var nameList = [NameWithImage]()
     
     let context = CIContext()
     
@@ -45,6 +46,7 @@ struct ContentView: View {
                 .onTapGesture {
                     self.showingImagePicker = true
                 }
+                NavigationLink("Name List", destination: ListView(nameList: $nameList))
             }
             .navigationBarTitle("Remember Me")
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
@@ -52,7 +54,7 @@ struct ContentView: View {
             }
             // add prompt to name picture
             .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
-                EditView(imageName: $imageName)
+                EditView(imageName: $imageName, nameList: $nameList)
             }
         }
     }
@@ -65,6 +67,7 @@ struct ContentView: View {
     func saveData() {
         // save code here
         // save image to user folder
+        nameList.append(NameWithImage(name: imageName, fileName: "\(imageName).jpg"))
         saveImageFile()
     }
         

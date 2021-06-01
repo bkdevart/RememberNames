@@ -11,6 +11,7 @@ struct EditView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var imageName: String
+    @Binding var nameList: [NameWithImage]
     
     var body: some View {
         NavigationView {
