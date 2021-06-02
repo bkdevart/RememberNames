@@ -8,45 +8,45 @@
 import SwiftUI
 
 struct ImageView: View {
+    @State private var image: Image?
     private var name = ""
     private var fileName = ""
-    @State private var image: Image?
     
     var body: some View {
-        Text(name)
-//        let imageFile = getDocumentsDirectory().appendingPathComponent("\(self.fileName).jpg")
-        // figure out how to read in file from URL
-        self.image
+        VStack {
+            Text(name)
+            image?
+                .resizable()
+                .scaledToFit()
+        }
+        .onAppear(perform: loadImage)
     }
     
     init(name: String, fileName: String) {
         self.name = name
         self.fileName = fileName
-//        guard let inputImage = Image(uiImage: loadImage(fileName: fileName)) else { return }
-//        self.image = Image(uiImage: loadImage(fileName: fileName))
     }
     
-//    func getDocumentsDirectory() -> URL {
-//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        let imagePath = paths[0].appendingPathComponent("\(self.fileName).jpg")
-//        let imageData = try Data(contentsOf: imagePath. { }
-////        let imageData = try Data(contentsOf: fileURL)
-//        return UIImage(data: imageData)
-//    }
-    
-    func loadImage(fileName: String) -> UIImage? {
+    func getImagePath() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = paths[0].appendingPathComponent("\(self.fileName).jpg")
-//        let fileURL = documentsUrl.appendingPathComponent(fileName)
-        do {
-            let imageData = try Data(contentsOf: fileURL)
-            return UIImage(data: imageData)
-        } catch {
-            print("Error loading image : \(error)")
-        }
-        return nil
+        let fileURL = paths[0].appendingPathComponent("\(self.fileName)")
+        return fileURL
     }
     
+    func loadImage() {
+        do {
+            let data = try Data(contentsOf: getImagePath(), options: .alwaysMapped)
+            let sourceImage = UIImage(data: data) // ?? UIImage(systemName: "star")
+            if let sourceImage = sourceImage {
+                image = Image(uiImage: sourceImage)
+            } else {
+                image = Image(systemName: "figure.walk")
+            }
+        } catch {
+            print("Image did not load")
+        }
+        
+    }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
