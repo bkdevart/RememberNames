@@ -42,7 +42,7 @@ struct ContentView: View {
                     self.showingImagePicker = true
                 }
                 .padding()
-                NavigationLink("Name List", destination: ListView(nameList: $nameList))
+                NavigationLink("Name List", destination: ListView(nameList: nameList))
             }
             .navigationBarTitle("Remember Me")
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
@@ -59,19 +59,6 @@ struct ContentView: View {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
-    // TODO rename these functions, have them manage JSON file with names/URLs
-//    func loadData() {
-//        let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
-//
-//        do {
-//            let data = try Data(contentsOf: filename)
-//            // TODO fix failing to decode file here
-//            locations = try JSONDecoder().decode([CodableMKPointAnnotation].self, from: data)
-//        } catch {
-//            print("Unable to load saved data.")
-//        }
-//    }
     
     func saveData() {
         // save image to user folder

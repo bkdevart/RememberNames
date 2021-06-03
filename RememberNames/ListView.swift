@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ListView: View {
-    @Binding var nameList: [NameWithImage]
+//    @Binding var nameList: [NameWithImage]
+    @State var nameList: [NameWithImage]
     
     var body: some View {
         Form {
@@ -22,5 +23,22 @@ struct ListView: View {
             }
             .navigationBarTitle("Name List")
         }
+        .onAppear(perform: loadData)
+    }
+    
+    func loadData() {
+        let filename = getDocumentsDirectory().appendingPathComponent("ImageNames")
+
+        do {
+            let data = try Data(contentsOf: filename)
+            nameList = try JSONDecoder().decode([NameWithImage].self, from: data)
+        } catch {
+            print("Unable to load saved data.")
+        }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
