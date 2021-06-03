@@ -18,6 +18,7 @@
 		CAE940852662CB3000F3EF72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE940842662CB3000F3EF72 /* Preview Assets.xcassets */; };
 		CAE940882662CB3000F3EF72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE940862662CB3000F3EF72 /* LaunchScreen.storyboard */; };
 		CAE940902662CCA700F3EF72 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */; };
+		CAF24F6226686E44004A730A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF24F6126686E44004A730A /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CAE940872662CB3000F3EF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAE940892662CB3000F3EF72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CAF24F6126686E44004A730A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				CAB4651526658F4F00EC7C04 /* NameWithImage.swift */,
 				CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */,
 				CAB4651326658E0B00EC7C04 /* ImageView.swift */,
+				CAF24F6126686E44004A730A /* ListView.swift */,
 				CAE940812662CB3000F3EF72 /* Assets.xcassets */,
 				CAE940862662CB3000F3EF72 /* LaunchScreen.storyboard */,
 				CAE940892662CB3000F3EF72 /* Info.plist */,
@@ -168,6 +171,7 @@
 				CAE9407B2662CB3000F3EF72 /* SceneDelegate.swift in Sources */,
 				CAE9407D2662CB3000F3EF72 /* ContentView.swift in Sources */,
 				CAB4651626658F4F00EC7C04 /* NameWithImage.swift in Sources */,
+				CAF24F6226686E44004A730A /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

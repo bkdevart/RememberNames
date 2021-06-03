@@ -21,13 +21,7 @@ struct ContentView: View {
                 List(nameList.sorted(), id: \.name) { name in
                     NavigationLink(destination: ImageView(name: name.name, fileName: name.fileName)) {
                         VStack(alignment: .leading) {
-                            HStack {
-                                Text(name.name)
-                                    .font(.headline)
-                                // put image here
-                                Text(name.fileName)
-                                    .font(.subheadline)
-                            }
+                            ListView(name: name.name, fileName: name.fileName)
                         }
                     }
                 }
