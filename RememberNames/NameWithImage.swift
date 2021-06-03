@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct NameWithImage: Codable {
+struct NameWithImage: Codable, Comparable {
     var name: String
     var fileName: String
+    
+    static func < (lhs: NameWithImage, rhs: NameWithImage) -> Bool {
+        lhs.name < rhs.name
+    }
 }
