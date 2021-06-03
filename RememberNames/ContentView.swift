@@ -23,24 +23,9 @@ struct ContentView: View {
                 Text(imageName)
                     .fontWeight(.bold)
                     .font(.headline)
-                ZStack {
-                    Rectangle()
-                        .fill(Color.secondary)
-                    
-                    if image != nil {
-                        image?
-                            .resizable()
-                            .scaledToFit()
-                        
-                    } else {
-                        Text("Tap to select a picture")
-                            .foregroundColor(.white)
-                            .font(.headline)
-                    }
-                }
-                .onTapGesture {
-                    self.showingImagePicker = true
-                }
+                Button("Add photo", action: {
+                        showingImagePicker = true
+                })
                 .padding()
                 NavigationLink("Name List", destination: ListView(nameList: nameList))
             }
@@ -48,7 +33,7 @@ struct ContentView: View {
             .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
                 ImagePicker(image: self.$inputImage)
             }
-            // add prompt to name picture
+            // prompt to name picture
             .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
                 EditView(imageName: $imageName, nameList: $nameList)
             }
