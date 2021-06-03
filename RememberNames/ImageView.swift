@@ -11,6 +11,7 @@ struct ImageView: View {
     @State private var image: Image?
     private var name = ""
     private var fileName = ""
+    let locationFetcher = LocationFetcher()
     
     var body: some View {
         VStack {
@@ -18,6 +19,19 @@ struct ImageView: View {
             image?
                 .resizable()
                 .scaledToFit()
+//            MapView()
+            Spacer()
+            Button("Start Tracking Location") {
+                self.locationFetcher.start()
+            }
+            Button("Read Location") {
+                if let location = self.locationFetcher.lastKnownLocation {
+                    print("Your location is \(location)")
+                } else {
+                    print("Your location is unknown")
+                }
+            }
+            
         }
         .onAppear(perform: loadImage)
     }

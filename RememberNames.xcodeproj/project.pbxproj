@@ -19,6 +19,8 @@
 		CAE940882662CB3000F3EF72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE940862662CB3000F3EF72 /* LaunchScreen.storyboard */; };
 		CAE940902662CCA700F3EF72 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */; };
 		CAF24F6226686E44004A730A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF24F6126686E44004A730A /* ListView.swift */; };
+		CAF24F6426699A2D004A730A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF24F6326699A2D004A730A /* MapView.swift */; };
+		CAF24F6626699A92004A730A /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF24F6526699A92004A730A /* LocationFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		CAE940892662CB3000F3EF72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		CAF24F6126686E44004A730A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		CAF24F6326699A2D004A730A /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CAF24F6526699A92004A730A /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				CAE940782662CB3000F3EF72 /* AppDelegate.swift */,
 				CAE9407A2662CB3000F3EF72 /* SceneDelegate.swift */,
 				CAE9407C2662CB3000F3EF72 /* ContentView.swift */,
+				CAF24F6326699A2D004A730A /* MapView.swift */,
+				CAF24F6526699A92004A730A /* LocationFetcher.swift */,
 				CA31C8AF2664730D00282BD6 /* EditView.swift */,
 				CAB4651526658F4F00EC7C04 /* NameWithImage.swift */,
 				CAE9408F2662CCA700F3EF72 /* ImagePicker.swift */,
@@ -167,9 +173,11 @@
 				CAB4651426658E0B00EC7C04 /* ImageView.swift in Sources */,
 				CAE940802662CB3000F3EF72 /* RememberNames.xcdatamodeld in Sources */,
 				CA31C8B02664730D00282BD6 /* EditView.swift in Sources */,
+				CAF24F6626699A92004A730A /* LocationFetcher.swift in Sources */,
 				CAE940902662CCA700F3EF72 /* ImagePicker.swift in Sources */,
 				CAE9407B2662CB3000F3EF72 /* SceneDelegate.swift in Sources */,
 				CAE9407D2662CB3000F3EF72 /* ContentView.swift in Sources */,
+				CAF24F6426699A2D004A730A /* MapView.swift in Sources */,
 				CAB4651626658F4F00EC7C04 /* NameWithImage.swift in Sources */,
 				CAF24F6226686E44004A730A /* ListView.swift in Sources */,
 			);
