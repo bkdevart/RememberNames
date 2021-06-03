@@ -20,14 +20,11 @@ struct ContentView: View {
             VStack {
                 List(nameList.sorted(), id: \.name) { name in
                     NavigationLink(destination: ImageView(name: name.name, fileName: name.fileName)) {
-                        VStack(alignment: .leading) {
-                            ListView(name: name.name, fileName: name.fileName)
-                        }
+                        ListView(name: name.name, fileName: name.fileName)
                     }
                 }
-                .onAppear(perform: loadData)
                 Button("Add photo", action: {
-                        showingImagePicker = true
+                    showingImagePicker = true
                 })
             }
             .navigationBarTitle("Remember Me")
@@ -38,6 +35,7 @@ struct ContentView: View {
             .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
                 EditView(imageName: $imageName, nameList: $nameList)
             }
+            .onAppear(perform: loadData)
         }
     }
     
@@ -47,13 +45,15 @@ struct ContentView: View {
     }
         
     func loadData() {
-        let filename = getDocumentsDirectory().appendingPathComponent("ImageNames")
-
-        do {
-            let data = try Data(contentsOf: filename)
-            nameList = try JSONDecoder().decode([NameWithImage].self, from: data)
-        } catch {
-            print("Unable to load saved data.")
+        if nameList.isEmpty {
+            let filename = getDocumentsDirectory().appendingPathComponent("ImageNames")
+            
+            do {
+                let data = try Data(contentsOf: filename)
+                nameList = try JSONDecoder().decode([NameWithImage].self, from: data)
+            } catch {
+                print("Unable to load saved data.")
+            }
         }
     }
     

@@ -18,8 +18,8 @@ struct ListView: View {
             Spacer()
             image?
                 .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150, height: 150)
         }
         .onAppear(perform: loadImage)
     }
