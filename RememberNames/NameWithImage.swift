@@ -7,8 +7,7 @@
 
 import Foundation
 
-struct NameWithImage {
-//    var id: Int
+struct NameWithImage: Codable {
     var name: String
     var fileName: String
 }

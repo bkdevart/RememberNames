@@ -11,18 +11,16 @@ struct ListView: View {
     @Binding var nameList: [NameWithImage]
     
     var body: some View {
-        NavigationView {
-            Form {
-                List(nameList, id: \.name) { name in
-                    NavigationLink(destination: ImageView(name: name.name, fileName: name.fileName)) {
-                        VStack(alignment: .leading) {
-                            Text(name.name)
-                                .font(.headline)
-                        }
+        Form {
+            List(nameList, id: \.name) { name in
+                NavigationLink(destination: ImageView(name: name.name, fileName: name.fileName)) {
+                    VStack(alignment: .leading) {
+                        Text(name.name)
+                            .font(.headline)
                     }
                 }
-                .navigationBarTitle("Name List")
             }
+            .navigationBarTitle("Name List")
         }
     }
 }

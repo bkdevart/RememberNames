@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-struct photoData {
-    var imageName: String
-    var personName: String
-}
-
 struct ContentView: View {
     @State private var image: Image?
     @State private var showingImagePicker = false
@@ -46,6 +41,7 @@ struct ContentView: View {
                 .onTapGesture {
                     self.showingImagePicker = true
                 }
+                .padding()
                 NavigationLink("Name List", destination: ListView(nameList: $nameList))
             }
             .navigationBarTitle("Remember Me")
@@ -64,11 +60,32 @@ struct ContentView: View {
         return paths[0]
     }
     
+    // TODO rename these functions, have them manage JSON file with names/URLs
+//    func loadData() {
+//        let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+//
+//        do {
+//            let data = try Data(contentsOf: filename)
+//            // TODO fix failing to decode file here
+//            locations = try JSONDecoder().decode([CodableMKPointAnnotation].self, from: data)
+//        } catch {
+//            print("Unable to load saved data.")
+//        }
+//    }
+    
     func saveData() {
-        // save code here
         // save image to user folder
         nameList.append(NameWithImage(name: imageName, fileName: "\(imageName).jpg"))
         saveImageFile()
+        // save JSON with image names
+        do {
+            let filename = getDocumentsDirectory().appendingPathComponent("ImageNames")
+            let data = try JSONEncoder().encode(self.nameList)
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Unable to save data.")
+        }
+        
     }
         
     func loadImage() {

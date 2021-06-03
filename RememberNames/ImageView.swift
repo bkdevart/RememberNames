@@ -36,7 +36,7 @@ struct ImageView: View {
     func loadImage() {
         do {
             let data = try Data(contentsOf: getImagePath(), options: .alwaysMapped)
-            let sourceImage = UIImage(data: data) // ?? UIImage(systemName: "star")
+            let sourceImage = UIImage(data: data)
             if let sourceImage = sourceImage {
                 image = Image(uiImage: sourceImage)
             } else {
