@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ImageView: View {
     @State private var image: Image?
     private var name = ""
     private var fileName = ""
-    let locationFetcher = LocationFetcher()
+    @State var centerCoordinate: CLLocationCoordinate2D
+    @State var selectedPlace: MKPointAnnotation?
+    @State var showingPlaceDetails: Bool
+    @State var annotations: [CodableMKPointAnnotation]
     
     var body: some View {
         VStack {
@@ -19,26 +23,23 @@ struct ImageView: View {
             image?
                 .resizable()
                 .scaledToFit()
-//            MapView()
             Spacer()
-            Button("Start Tracking Location") {
-                self.locationFetcher.start()
-            }
-            Button("Read Location") {
-                if let location = self.locationFetcher.lastKnownLocation {
-                    print("Your location is \(location)")
-                } else {
-                    print("Your location is unknown")
-                }
-            }
-            
+            MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: annotations)
         }
         .onAppear(perform: loadImage)
     }
     
-    init(name: String, fileName: String) {
+    init(name: String, fileName: String, latitude: Double, longitude: Double) {
         self.name = name
         self.fileName = fileName
+        self.centerCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let selectedPlace = CodableMKPointAnnotation()
+        selectedPlace.title = self.name
+        selectedPlace.subtitle = "Remember me!"
+        selectedPlace.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.selectedPlace = selectedPlace
+        self.showingPlaceDetails = true
+        self.annotations = [selectedPlace]
     }
     
     func getImagePath() -> URL {
@@ -65,6 +66,6 @@ struct ImageView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(name: "Bob", fileName: "Bob.jpg")
+        ImageView(name: "Bob", fileName: "Bob.jpg", latitude: 0.0, longitude: 0.0)
     }
 }

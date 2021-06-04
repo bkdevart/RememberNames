@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import MapKit
 
 struct NameWithImage: Codable, Comparable {
     var name: String
     var fileName: String
+    var longitude: Double
+    var latitude: Double
     
     static func < (lhs: NameWithImage, rhs: NameWithImage) -> Bool {
         lhs.name < rhs.name

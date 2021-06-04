@@ -15,15 +15,18 @@ struct ContentView: View {
     @State private var imageName = ""
     @State private var nameList = [NameWithImage]()
     
+    let locationFetcher = LocationFetcher()
+    
     var body: some View {
         return NavigationView {
             VStack {
                 List(nameList.sorted(), id: \.name) { name in
-                    NavigationLink(destination: ImageView(name: name.name, fileName: name.fileName)) {
+                    NavigationLink(destination: ImageView(name: name.name, fileName: name.fileName, latitude: name.latitude, longitude: name.longitude)) {
                         ListView(name: name.name, fileName: name.fileName)
                     }
                 }
                 Button("Add photo", action: {
+                    self.locationFetcher.start()
                     showingImagePicker = true
                 })
             }
@@ -70,11 +73,8 @@ struct ContentView: View {
         }
     }
     
-    func saveData() {
-        // save image to user folder
-        nameList.append(NameWithImage(name: imageName, fileName: "\(imageName).jpg"))
-        saveImageFile()
-        // save JSON with image names
+    func saveJSONFile() {
+        // TODO grab user location and save coordinates into file
         do {
             let filename = getDocumentsDirectory().appendingPathComponent("ImageNames")
             let data = try JSONEncoder().encode(self.nameList)
@@ -82,6 +82,22 @@ struct ContentView: View {
         } catch {
             print("Unable to save data.")
         }
+    }
+    
+    func saveData() {
+        // save image to user folder
+        // update with lattitude/longitude
+        if let location = self.locationFetcher.lastKnownLocation {
+            print("Your location is \(location)")
+            nameList.append(NameWithImage(name: imageName, fileName: "\(imageName).jpg",
+                                          longitude: location.longitude, latitude: location.latitude))
+        } else {
+            print("Your location is unknown")
+        }
+        
+        saveImageFile()
+        // save JSON with image names
+        saveJSONFile()
     }
 }
 
